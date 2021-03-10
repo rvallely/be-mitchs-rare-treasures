@@ -8,13 +8,15 @@ After taking offence at a remark about his business acumen, he has charged headl
 
 Mitch was planning to store all of his data in an Excel spreadsheet but you have informed him that this is a terrible idea. Convinced by your arguments, he made a start by creating the `shops` table for the database but needs your help to finish it off.
 
+### a) Create the tables
+
 Your first job will be to update the `createTables` function to create a `treasures` table.
 
-### Create the tables
+You can find the `createTables` function in `./db/manage-tables.js`. Update it to also create a `treasures` table.
 
-You can find the `createTables` function in `./db/manage-tables.js`. Update it to also create a `treasures` table that can be created in both the `test` and `development` databases.
+The `seed` script provided for you in the `package.json` will run the `seed` function (more on that later...) which in turn invokes the `createTables` function. Use the `seed` script to check your `createTable` function is working as intended.
 
-The `seed` script provided for you in the `package.json` will run the `seed` function (more on that later...) which invokes the `createTables` function. Use this to check your `createTable` function is working as intended.
+> **Hint**: Remember that you'll need create a `.env.development` file (use the `example.env` as a template) and then run the `setup.sql` file to create the databases first
 
 #### Treasures
 
@@ -30,24 +32,26 @@ Each treasure should have a unique identifier and the following properties:
 
 \* shop_id should reference a shop in the shops table.
 
-### Drop the tables
+### b) Drop the tables
 
 Once you have created the treasures table, you need to make sure that there is some way of deleting all of the treasure data for testing purposes. Update the `dropTables` function in `./db/manage-tables.js` appropriately.
 
 ## 2. Seeding
 
-Mitch was going to enter this data by hand, but it was getting a little tiresome. Help him out by writing the **seed** function in `./db/seed.js` for the insertion of data into each table using `node-postgres`.
+Mitch was going to enter this data by hand, but it was getting a little tiresome. Help him out by updating the **seed** function in `./db/seed.js` for the insertion of data into each table using `node-postgres`.
 
 You will need to think about how to maintain relationships between the data before they are inserted into the db. In the database, treasures should reference the shop they belong to by the **shop_id**.
 
-When introducing new functionality into your seed file (or any file for that matter), it's important to remember to ask yourself: "Could I build this with TDD?". `node-postgres`, although it isn't our code, is a fully tested library. This means that we can use it and have a good degree of confidence in its effectiveness. If you need to add functionality to manipulate the data in any way, that's the time to start testing! Be sure that you build any seed utility functions you require using TDD.
+> When introducing new functionality into your seed file (or any file for that matter), it's important to remember to ask yourself: "Could I build this with TDD?". `node-postgres`, although it isn't our code, is a fully tested library. This means that we can use it and have a good degree of confidence in its effectiveness. If you need to add functionality to manipulate the data in any way, that's the time to start testing! Be sure that you build any seed utility functions you require using TDD.
 
 ## 3. Building Endpoints
 
 It's essential that each endpoint is tested, including a test for each query! Avoid testing for too many things in one assertion.
 It might be worth using a very small dataset (you can use the data in your `./db/data/test-data.js` file!).
 
-Add error handling tests for each endpoint immediately after implementing the happy-path (and then implement the error handling!)
+Add error handling tests for each endpoint immediately after implementing the happy-path.
+
+> **Hint:** Remember that if you're going to use a _test_ database, you'll now need a `.env.test` file to specify the name of the test database.
 
 ### **GET** `/api/treasures`
 
@@ -71,7 +75,7 @@ _responds with all treasures, including the shop name and details_
 
   If you have to use string interpolation here, make sure you validate the input to prevent **SQL INJECTION**.
 
-**Hint:** Some properties on the response might need to be coerced into numbers to check whether they are sorted correctly. Check out [the documentation for jest-sorted](https://www.npmjs.com/package/jest-sorted#user-content-tobesorted).
+> **Hint:** Some properties on the response might need to be coerced into numbers to check whether they are sorted correctly. Check out [the documentation for jest-sorted](https://www.npmjs.com/package/jest-sorted#user-content-tobesorted).
 
 - default sort order: ascending
 
@@ -113,7 +117,9 @@ _deletes a treasure from the database given a treasure id_
 
 - should be able to remove an existing treasure from the database, using the treasure_id
 
-## **GET** `/api/shops`
+
+### **GET** `/api/shops`
+
 
 Create an endpoint which allows Mitch to see all the shops in his network. He also needs to know how much capital is in each shop.
 
@@ -125,7 +131,7 @@ _responds with all shops_
   - slogan
 - add a **stock_value** key to each shop object (the total cost of treasures belonging to the shop). Think how you could do this in regular SQL first and then convert it to knex. Lessons 10 and 11 of this [tutorial](https://sqlbolt.com/lesson/select_queries_with_aggregates) could be useful when beginning to write your SQL query.
 
-## **GET** `/api/treasures/` - more queries
+### **GET** `/api/treasures/` - more queries
 
 Return to the GET `/api/treasures` endpoint and add the capability for clients to filter the results by age.
 
