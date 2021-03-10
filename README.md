@@ -14,7 +14,7 @@ Your first job will be to update the `createTables` function to create a `treasu
 
 You can find the `createTables` function in `./db/manage-tables.js`. Update it to also create a `treasures` table.
 
-The `seed` script provided for you in the `package.json` will run the `seed` function (more on that later...) which in turn invokes the `createTables` function. Use `seed` script to check your `createTable` function is working as intended.
+The `seed` script provided for you in the `package.json` will run the `seed` function (more on that later...) which in turn invokes the `createTables` function. Use the `seed` script to check your `createTable` function is working as intended.
 
 > **Hint**: Remember that you'll need create a `.env.development` file (use the `example.env` as a template) and then run the `setup.sql` file to create the databases first
 
