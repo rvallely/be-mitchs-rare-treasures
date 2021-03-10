@@ -117,7 +117,9 @@ _deletes a treasure from the database given a treasure id_
 
 - should be able to remove an existing treasure from the database, using the treasure_id
 
-### **GET** `/api/shops`
+
+### **GET** `/api/shops`
+
 
 Create an endpoint which allows Mitch to see all the shops in his network. He also needs to know how much capital is in each shop.
 
