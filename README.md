@@ -68,18 +68,20 @@ _responds with all treasures, including the shop name and details_
   - cost_at_auction
   - **shop_name**
 
-- default sort criteria: age
+- default sort criteria: **age**
+- default sort order: **ascending**
 
   - `/api/treasures`, first result should be the youngest (default)
-  - Allow a client to sort by `age`, `cost_at_auction` and `treasure_name` wth a `sort_by` query. `/api/treasures?sort_by=cost_at_auction`, for example, should respond with a list of treasures, cheapest firsts.
 
-  If you have to use string interpolation here, make sure you validate the input to prevent **SQL INJECTION**.
+- Allow a client to sort by `age`, `cost_at_auction` and `treasure_name` with a `sort_by` query.
+  
+  -  _`/api/treasures?sort_by=cost_at_auction`, for example, should respond with a list of treasures, cheapest firsts._
+
+If you have to use string interpolation here, make sure you validate the input to prevent **SQL INJECTION**.
 
 > **Hint:** Some properties on the response might need to be coerced into numbers to check whether they are sorted correctly. Check out [the documentation for jest-sorted](https://www.npmjs.com/package/jest-sorted#user-content-tobesorted).
 
-- default sort order: ascending
-
-  - `/api/treasures`, first result should be the youngest (default)
+- Allow a client to change the sort **order** with an `order` query.
   - `/api/treasures?order=desc`, for example, first result should be the oldest
 
 - add the following queries:
