@@ -131,7 +131,7 @@ _responds with all shops_
   - shop_id
   - shop_name
   - slogan
-- add a **stock_value** key to each shop object (the total cost of treasures belonging to the shop). Think how you could do this in regular SQL first and then convert it to knex. Lessons 10 and 11 of this [tutorial](https://sqlbolt.com/lesson/select_queries_with_aggregates) could be useful when beginning to write your SQL query.
+- add a **stock_value** key to each shop object (the total cost of treasures belonging to the shop). Lessons 10 and 11 of this [tutorial](https://sqlbolt.com/lesson/select_queries_with_aggregates) could be useful when beginning to write your SQL query.
 
 ### **GET** `/api/treasures/` - more queries
 
