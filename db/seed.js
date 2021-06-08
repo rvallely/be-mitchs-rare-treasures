@@ -1,22 +1,21 @@
-const format = require('pg-format');
 const db = require('./');
-const { dropTables, createTables } = require('./manage-tables');
 
 const seed = ({ shopData, treasureData }) => {
-  return dropTables()
+  return db
+    .query(`DROP TABLE IF EXISTS shops;`)
     .then(() => {
-      return createTables();
+      // drop any existing treasures table
     })
     .then(() => {
-      const insertShopsQueryStr = format(
-        'INSERT INTO shops (shop_name, slogan) VALUES %L RETURNING *;',
-        shopData.map(({ shop_name, slogan }) => [shop_name, slogan])
-      );
-      return db.query(insertShopsQueryStr);
+      return db.query(`
+      CREATE TABLE shops (
+        shop_id SERIAL PRIMARY KEY,
+        shop_name VARCHAR(255) NOT NULL,
+        slogan TEXT
+      );`);
     })
     .then(() => {
-      // format then insert the treasures data into the treasures table
-      // build any util functions with TDD!
+      // continue from here...
     });
 };
 
