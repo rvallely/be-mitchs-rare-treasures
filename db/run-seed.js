@@ -3,8 +3,4 @@ const seed = require('./seed');
 
 const db = require('./');
 
-const runSeed = () => {
-  return seed(data).then(() => db.end());
-};
-
-runSeed();
+seed(data).then(() => db.end());

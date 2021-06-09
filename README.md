@@ -4,21 +4,21 @@ Mitch has gone into business!
 
 After taking offence at a remark about his business acumen, he has charged headlong into establishing a network of antiques shops around the country. His jealous former colleagues have tried to follow him into the already crowded field, and now it's time for him to do a little market research. You have to help.
 
-## 1. Database Setup
+## 1. Seeding
 
-Mitch was planning to store all of his data in an Excel spreadsheet but you have informed him that this is a terrible idea. Convinced by your arguments, he made a start by creating the `shops` table for the database but needs your help to finish it off.
+Mitch was planning to store all of his data in an Excel spreadsheet but you have informed him that this is a terrible idea. Convinced by your arguments, he made a start on the seed function by creating the `shops` table for the database but needs your help to finish it off.
 
-### a) Create the tables
+### a) Drop the existing tables
 
-Your first job will be to update the `createTables` function to create a `treasures` table.
-
-You can find the `createTables` function in `./db/manage-tables.js`. Update it to also create a `treasures` table.
-
-The `seed` script provided for you in the `package.json` will run the `seed` function (more on that later...) which in turn invokes the `createTables` function. Use the `seed` script to check your `createTable` function is working as intended.
+The `seed` script provided for you in the `package.json` will run the `seed` function with the dev data. Use the `seed` script to check your `seed` function is working as intended.
 
 > **Hint**: Remember that you'll need create a `.env.development` file (use the `example.env` as a template) and then run the `setup.sql` file to create the databases first
 
-#### Treasures
+Your first job will be complete the seed function to remove any existing treasures tables. Update the seed function accordingly.
+
+### b) Create a new treasures table
+
+Next you will need to expand the `seed` function to create a `treasures` table. 
 
 Each treasure should have a unique identifier and the following properties:
 
@@ -32,11 +32,8 @@ Each treasure should have a unique identifier and the following properties:
 
 \* shop_id should reference a shop in the shops table.
 
-### b) Drop the tables
 
-Once you have created the treasures table, you need to make sure that there is some way of deleting all of the treasure data for testing purposes. Update the `dropTables` function in `./db/manage-tables.js` appropriately.
-
-## 2. Seeding
+### c) Insert the data
 
 Mitch was going to enter this data by hand, but it was getting a little tiresome. Help him out by updating the **seed** function in `./db/seed.js` for the insertion of data into each table using `node-postgres`.
 
@@ -121,7 +118,6 @@ _deletes a treasure from the database given a treasure id_
 
 
 ### **GET** `/api/shops`
-
 
 Create an endpoint which allows Mitch to see all the shops in his network. He also needs to know how much capital is in each shop.
 
