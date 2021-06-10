@@ -2,9 +2,9 @@ const db = require('./');
 
 const seed = ({ shopData, treasureData }) => {
   return db
-    .query(`DROP TABLE IF EXISTS shops;`)
+    .query(`DROP TABLE IF EXISTS treasures;`)
     .then(() => {
-      // drop any existing treasures table
+      // drop any existing shops table
     })
     .then(() => {
       return db.query(`
