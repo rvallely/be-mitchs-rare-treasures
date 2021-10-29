@@ -83,3 +83,5 @@ If you have to use string interpolation here, make sure you validate the input t
 
 - add the following queries:
   - colour e.g. `/api/treasures?colour=gold` responds with gold treasures only
+
+**If you have got this far, well done! Check that you have tested thoroughly and also tested your error handling - then you can have a look at the `additional-tasks.md` file for more endpoints to implement!**
