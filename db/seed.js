@@ -1,3 +1,4 @@
+const format = require("pg-format");
 const db = require('./');
 
 const seed = ({ shopData, treasureData }) => {
@@ -25,27 +26,40 @@ const seed = ({ shopData, treasureData }) => {
         shop_id INT REFERENCES shops(shop_id) NOT NULL
       );
     `)
-      
     })
-    .then((result) => {
-      //console.log(result);
-      return db.query(`
-      SELECT * 
-      FROM treasures;`)
-      
-    })
-    .then((result) => {
-      console.log(result);
-    })
-    // .then(() => {
-    //   console.log(treasureData, '<<< treasureData');
-    //   console.log(shopData, '<<< shopData')
-    // })
-    // .then(() => {
-    //   console.log(db.query(`
+    // TESTING
+    // .then((result) => {
+    //   //console.log(result);
+    //   return db.query(`
     //   SELECT * 
-    //   FROM treasures`));
-    // });
+    //   FROM treasures;`)
+    // })
+
+
+    // 1. insert data into the shops table
+    .then(() => {
+      // TEST THE DATA - works
+      console.log("shopData: ", shopData);
+      
+      const sql = format(`INSERT INTO shops (shop_name) VALUES %L;`, [
+        ["a"],
+        ["b"],
+        // CONTINUE LOOKING AT LECTURE VID FROM 17-18 mins-ish
+      ]);
+      console.log(sql);
+
+      // return db.query(`
+      //   INSERT INTO shops
+      //   (shop_name, owner, slogan)
+      //   VALUES ($1, $2, $3);
+      // `,
+      //   shopData.map((shop) => shop.shop_name)
+      // );
+
+
+    })
+
+    // 2. insert data into the treasures table
 };
 
 module.exports = seed;
