@@ -8,7 +8,7 @@ After taking offence at a remark about his business acumen, he has charged headl
 
 Mitch was planning to store all of his data in an Excel spreadsheet but you have informed him that this is a terrible idea. Convinced by your arguments, he made a start on the seed function by creating the `shops` table for the database but needs your help to finish it off.
 
-### a) Drop the existing tables
+### a) Drop the existing tables  -- DONE
 
 The `seed` script provided for you in the `package.json` will run the `seed` function with the dev data. Use the `seed` script to check your `seed` function is working as intended.
 
@@ -16,7 +16,7 @@ The `seed` script provided for you in the `package.json` will run the `seed` fun
 
 Your first job will be complete the seed function to remove any existing treasures tables. Update the seed function accordingly.
 
-### b) Create a new treasures table
+### b) Create a new treasures table  -- DONE
 
 Next you will need to expand the `seed` function to create a `treasures` table.
 
