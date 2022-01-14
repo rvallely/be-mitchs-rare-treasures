@@ -33,7 +33,7 @@ Each treasure should have a unique identifier and the following properties:
 \* shop_id should reference a shop in the shops table.
 
 
-### c) Insert the data
+### c) Insert the data  -- IN PROGRESS
 
 Mitch was going to enter this data by hand, but it was getting a little tiresome. Help him out by updating the **seed** function in `./db/seed.js` for the insertion of data into each table using `node-postgres`.
 

@@ -1,5 +1,7 @@
 const format = require("pg-format");
-const db = require('./');
+const { formatShopData } = require("../utils/seed-formatting");
+const db = require("./");
+
 
 const seed = ({ shopData, treasureData }) => {
   return db
@@ -27,39 +29,32 @@ const seed = ({ shopData, treasureData }) => {
       );
     `)
     })
-    // TESTING
-    // .then((result) => {
-    //   //console.log(result);
-    //   return db.query(`
-    //   SELECT * 
-    //   FROM treasures;`)
-    // })
-
 
     // 1. insert data into the shops table
     .then(() => {
-      // TEST THE DATA - works
-      console.log("shopData: ", shopData);
+
+      // TEST: data
+      console.log("shopData: ", shopData);  // works
+
+      const formattedShops = formatShopData(shopData);
       
-      const sql = format(`INSERT INTO shops (shop_name) VALUES %L;`, [
-        ["a"],
-        ["b"],
-        // CONTINUE LOOKING AT LECTURE VID FROM 17-18 mins-ish
-      ]);
-      console.log(sql);
+      const sql = format(
+        `INSERT INTO shops (shop_name) VALUES %L RETURNING *;`,
+        formattedShops
+        );
+        
+        // TEST: sql
+        console.log("SQL ---> ", sql);
 
-      // return db.query(`
-      //   INSERT INTO shops
-      //   (shop_name, owner, slogan)
-      //   VALUES ($1, $2, $3);
-      // `,
-      //   shopData.map((shop) => shop.shop_name)
-      // );
-
-
+        return db.query(sql);
     })
 
-    // 2. insert data into the treasures table
+    // Upto here. See video around 5 mins: https://www.youtube.com/watch?v=nL7Y3VXBdh8 
+
+    .then((result) => {
+      console.log(result);
+    });
+
 };
 
 module.exports = seed;
