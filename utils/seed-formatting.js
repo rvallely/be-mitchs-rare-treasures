@@ -1,18 +1,17 @@
-// functions go here
-
 exports.formatShopData = (shopData) => {
     const formattedShops = shopData.map((shop) => [shop.shop_name, shop.owner, shop.slogan]);
     return formattedShops;
 };
 
 
-// exports.createShopRef = (shopRows) => {
-//     const ref = {};
-//     shopRows.forEach((shopRow) => {
-//         ref[shopRow.shop_name] = shopRow.shop_id;
-//     });
-//     return ref;
-// };
+exports.createShopRef = (shopRows) => {
+    const ref = {};
+    shopRows.forEach((shopRow) => {
+        ref[shopRow.shop_name] = shopRow.shop_id;
+    });
+    //console.log('THIS IS THE REF', ref);
+    return ref;
+};
 
 
 
@@ -23,13 +22,10 @@ exports.formatTreasureData = (treasureData, shopRef) => {
         return [
             treasure.treasure_name, 
             treasure.colour, 
+            treasure.age,
             treasure.cost_at_auction, 
-            shopRef[treasure.shop_],
-            // shop_id: shop_id of the shop name in the treasure data
-            
+            shopRef[treasure.shop],
         ];
     });
 };
-/* {
-    "shop_id" : 
-} */
+
