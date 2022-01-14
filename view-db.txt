@@ -1,0 +1,46 @@
+You are now connected to database "mitchs_rare_treasures_test" as user "rosiev".
+ shop_id | shop_name |    owner    |  slogan  
+---------+-----------+-------------+----------
+       1 | shop-b    | firstname-b | slogan-b
+       2 | shop-d    | firstname-c | slogan-d
+       3 | shop-e    | firstname-d | slogan-e
+       4 | shop-f    | firstname-e | slogan-f
+       5 | shop-g    | firstname-f | slogan-g
+       6 | shop-h    | firstname-a | slogan-h
+       7 | shop-i    | firstname-g | slogan-i
+       8 | shop-a    | firstname-h | slogan-a
+       9 | shop-j    | firstname-i | slogan-j
+      10 | shop-k    | firstname-j | slogan-k
+      11 | shop-c    | firstname-c | slogan-c
+(11 rows)
+
+ treasure_id | treasure_name |  colour   | cost_at_auction | shop_id 
+-------------+---------------+-----------+-----------------+---------
+           1 | treasure-a    | turquoise |              20 |        
+           2 | treasure-d    | azure     |            1001 |        
+           3 | treasure-b    | gold      |             500 |        
+           4 | treasure-f    | onyx      |            0.01 |        
+           5 | treasure-h    | carmine   |             6.9 |        
+           6 | treasure-u    | khaki     |            3.99 |        
+           7 | treasure-e    | onyx      |        99999.99 |        
+           8 | treasure-n    | magenta   |            6.99 |        
+           9 | treasure-i    | burgundy  |           18.99 |        
+          10 | treasure-c    | gold      |           15.99 |        
+          11 | treasure-r    | silver    |            8.99 |        
+          12 | treasure-j    | mikado    |         2340.99 |        
+          13 | treasure-g    | carmine   |            0.59 |        
+          14 | treasure-l    | cobalt    |            6.99 |        
+          15 | treasure-p    | turquoise |          987.99 |        
+          16 | treasure-m    | burgundy  |            5.99 |        
+          17 | treasure-o    | saffron   |           78.99 |        
+          18 | treasure-k    | magenta   |           23.99 |        
+          19 | treasure-q    | magenta   |           60.99 |        
+          20 | treasure-s    | silver    |           12.99 |        
+          21 | treasure-t    | mikado    |           41.99 |        
+          22 | treasure-v    | ivory     |           78.99 |        
+          23 | treasure-w    | silver    |           60.99 |        
+          24 | treasure-x    | cobalt    |            7.99 |        
+          25 | treasure-y    | saffron   |            2.99 |        
+          26 | treasure-z    | ivory     |           48.99 |        
+(26 rows)
+

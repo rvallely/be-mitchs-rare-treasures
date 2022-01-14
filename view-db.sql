@@ -1,5 +1,6 @@
 -- file added by Paul, will need updating with our data
 
-\c film_night_test
+\c mitchs_rare_treasures_test
 
-SELECT * FROM films;
+SELECT * FROM shops;
+SELECT * FROM treasures;

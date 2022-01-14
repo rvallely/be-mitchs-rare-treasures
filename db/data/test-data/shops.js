@@ -11,3 +11,13 @@ module.exports = [
   { shop_name: 'shop-k', owner: 'firstname-j', slogan: 'slogan-k' },
   { shop_name: 'shop-c', owner: 'firstname-c', slogan: 'slogan-c' },
 ];
+
+
+/* 
+Property	Type	Required
+
+treasure_name	string	true
+colour	string	true
+age	number	true
+cost_at_auction	floating point number	true
+shop_id*	number	true */
